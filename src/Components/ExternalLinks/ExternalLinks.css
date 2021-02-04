@@ -1,0 +1,44 @@
+a:link,
+a:active,
+a:visited {
+    color: rgb(68, 68, 68);
+    text-decoration: none;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: rgb(37, 21, 179);
+}
+
+.small-icon {
+    display: inline-block;
+    width: 45px;
+    text-align: right;
+    font-size: 1.75em;
+    margin-left: 15px;
+    
+    /* Align the icon with the adjacent text */
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+/* Devices that don't support hover...
+Revert all links with a hover style back to their original state
+to avoid the hover effect getting 'stuck on' when touched */
+@media (hover: none) {
+    a:link,
+    a:active,
+    a:visited {
+        color: rgb(68, 68, 68);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .small-icon {
+        width: 30px;
+        text-align: right;
+        font-size: 1.5em;
+        margin-left: 5px;
+    }
+}

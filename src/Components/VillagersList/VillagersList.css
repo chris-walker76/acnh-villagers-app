@@ -1,0 +1,67 @@
+.externalLinksList {
+    width: 75%;
+    font-size: 1.5em;
+    color: rgb(68, 68, 68);
+    margin: 10px auto;
+    line-height: 1.5em;
+    text-align: right;
+}
+
+.villagersList {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    width: 75%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.villagerBox {
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(184, 184, 184);
+    width: 20%;
+    min-width: 150px;
+    margin: 10px 10px;
+}
+
+.villagerBox a:link,
+.villagerBox a:visited {
+    color: rgb(37, 21, 179);
+    text-decoration: none;
+}
+
+.villagerBox .heading {
+    display: block;
+    background-color: rgb(204, 204, 204);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.villagerImage {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.villagerImage img {
+    width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .externalLinksList {
+        width: 90%;
+    }
+
+    .villagersList {
+        width: 90%;
+    }
+
+    .villagerBox {
+        width: 40%;
+        min-width: 100px;
+    }
+}

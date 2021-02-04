@@ -1,0 +1,144 @@
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.loadingBox {
+    font-size: 5em;
+    text-align: center;
+    margin: 100px auto 0 auto;
+}
+
+.header {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.externalLinksDetail {
+    float: right;
+    width: 80%;
+    font-size: 1.5em;
+    color: rgb(68, 68, 68);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+    text-align: right;
+}
+
+.backButton {
+    font-size: 3.5em;
+    margin: 10px auto;
+    text-align: left;
+}
+
+.backButton a:link,
+.backButton a:active,
+.backButton a:visited {
+    color: rgb(68, 68, 68);
+    text-decoration: none;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.backButton a:hover {
+    color: rgb(37, 21, 179);
+}
+
+.top {
+    float: left;
+    width: 20%;
+}
+
+.bottom {
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.villagerDetail {
+    width: 100%;
+}
+
+.villagerDetail img {
+    display: block;
+    max-width: 256px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px rgb(184, 184, 184);
+}
+
+.headingBox1,
+.headingBox2 {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.headingBox1 {
+    font-size: 1.75em;
+    color: rgb(68, 68, 68);
+}
+
+.headingBox2 {
+    font-size: 3em;
+    color: rgb(37, 21, 179);    
+}
+
+.sectionBox {
+    display: block;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px rgb(184, 184, 184);
+    color: rgb(68, 68, 68);
+    background-color: rgb(204, 204, 204);
+    width: 50%;
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 25px auto;
+    padding: 10px 0;
+}
+
+.sectionBox .property {
+    color: rgb(37, 21, 179);
+}
+
+.sectionBox .quote {
+    color: rgb(37, 21, 179);
+    font-style: italic;
+}
+
+.sectionBox:first-child {
+    margin-top: 50px;
+}
+
+.sectionBox:last-child {
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 767px) {
+    .header {
+        width: 90%;
+    }
+
+    .bottom {
+        width: 90%;
+    }
+
+    .externalLinksDetail {
+        font-size: 1.2em;
+    }
+
+    .headingBox1,
+    .headingBox2 {
+        width: 90%;
+    }
+
+    .sectionBox {
+        width: 90%;
+    }
+
+    .backButton {
+        font-size: 2.5em;
+    }
+}
