@@ -51,7 +51,7 @@ const VillagerDetail = (props) => {
         <div>
             { /* Use clearix to correct the layout after using 'float' in the header. */ }
             <div className="header clearfix">
-                <div className="backButton top"><Link to={'/'}><ion-icon name="arrow-back-circle-outline"></ion-icon></Link></div>
+                <div className="backButton top"><Link to={'/'} onClick={() => props.history.goBack()}><ion-icon name="arrow-back-circle-outline"></ion-icon></Link></div>
                 <div className="externalLinksDetail"><ExternalLinks /></div>
             </div>
             <div id="villagerDetail" className="villagerDetail">
@@ -67,7 +67,7 @@ const VillagerDetail = (props) => {
                     <div className="sectionBox">Catchphrase:&nbsp; &nbsp; <span className="quote">&quot;{ villager['catch-phrase'] }&quot;</span></div>
                     <div className="sectionBox">Saying:&nbsp; &nbsp; <span className="quote">&quot;{ villager.saying }&quot;</span></div>
                 </div>
-                <div className="backButton bottom"><Link to={'/'}><ion-icon name="arrow-back-circle-outline"></ion-icon></Link></div>
+                <div className="backButton bottom"><Link to={'/'} onClick={() => props.history.goBack()}><ion-icon name="arrow-back-circle-outline"></ion-icon></Link></div>
             </div>
         </div>
     )

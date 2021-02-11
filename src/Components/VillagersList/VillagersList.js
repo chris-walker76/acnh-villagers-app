@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LazyLoad from 'react-lazyload';
 import PropTypes from 'prop-types';
 import './VillagersList.css';
 import ExternalLinks from '../ExternalLinks/ExternalLinks';
@@ -39,9 +38,7 @@ const VillagersList = props => {
                                         {villager[0]}
                                     </div>
                                     <div className="villagerImage">
-                                        <LazyLoad>
-                                            <img className="fade-in" src={villager[2]} alt={villager[0]} />
-                                        </LazyLoad>
+                                        <img loading="lazy" className="fade-in" src={villager[2]} alt={villager[0]} />
                                     </div>
                                 </Link>
                             </div>
