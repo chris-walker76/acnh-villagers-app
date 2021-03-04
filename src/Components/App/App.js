@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import VillagersList from '../VillagersList/VillagersList';
 import VillagerDetail from '../VillagerDetail/VillagerDetail';
 import './App.css';
 
 const App = () => {
 
-  // Initialise state - we will retrieve all villagers as one object into state.
+  // Initialise state - retrieve all villagers as one object into state.
   const [villagers, setVillagers] = useState({});
 
   // Make the API call to fetch all the villagers and store them in state.
@@ -41,10 +41,16 @@ const App = () => {
       <div className="App">
         <Router>
           <Switch>
+            { /* Route for home page - render the main list view */ }
             <Route path="/" exact>
               {villagers && <VillagersList list={villagers} />}
             </Route>
-            <Route path="/:id" component={VillagerDetail} />
+
+            { /* Route for 'id' parameter - render the individual detail view */ }
+            <Route path="/:id" exact component={VillagerDetail} />
+
+            { /* Catchall route - any other route should redirect to home page */ }
+            <Route render={() => <Redirect to="/" />} />
           </Switch>
         </Router>
       </div>

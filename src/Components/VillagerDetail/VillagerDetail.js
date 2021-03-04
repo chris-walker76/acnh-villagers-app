@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './VillagerDetail.css';
 import ExternalLinks from '../ExternalLinks/ExternalLinks';
@@ -10,6 +10,11 @@ const VillagerDetail = (props) => {
     // OK to hold state here, in a child component, as it's not passed anywhere and only used
     // for the purposes of rendering this component.
     const [villager, setVillager] = useState(null);
+
+    // Initialise state to hold whether the API response was invalid. 'False' by default.
+    // Will be set to 'invalid = true' if an unsuccessful HTTP response code is received,
+    // and then subsequently used to determine if we need to redirect back to the home page.
+    const [invalid, setInvalid] = useState(false);
 
     // 'Match' object is automatically received as a prop from the component that <Link>'ed to here.
     // It contains properties such as parameters, path and URL.
@@ -27,11 +32,13 @@ const VillagerDetail = (props) => {
                 setVillager(villager);
             } else {
                 // Response is not OK, so throw an error
-                throw new Error(`Error fetching villager: ID = ${villagerId}.`);
+                throw new Error(`Error fetching villager ID: ${villagerId}.`);
             }
         }
         catch (error) {
         console.log(error);
+            // Set this as an invalid request so we can redirect back to the home page.
+            setInvalid(true);
         }
     };
 
@@ -41,12 +48,20 @@ const VillagerDetail = (props) => {
         fetchVillager();
     }, []);
 
+    // If the API returned an unsuccessful HTTP response code, we marked this request as invalid.
+    // Therefore redirect back to the home page.
+    if (invalid) {
+        return <Redirect to="/" />
+    }
+
     // Make sure the effect has run and that we have a villager in state before trying to return JSX.
     // If not, return 'Loading...' text instead.
     if (!villager) {
         return <div id="villagerDetail" className="loadingBox">Loading...</div>
     }
 
+    // The request was valid, the effect has run and the villager has been populated in state,
+    // therefore we can return the detail.
     return (
         <div>
             { /* Use clearix to correct the layout after using 'float' in the header. */ }
