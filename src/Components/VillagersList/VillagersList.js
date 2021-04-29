@@ -33,7 +33,7 @@ const VillagersList = props => {
                     orderedVillagers.map(villager => {
                         return (
                             <div className="villagerBox fade-in" key={villager[1]}>
-                                <Link to={`/${villager[1]}`}>
+                                <Link to={`${process.env.PUBLIC_URL}/${villager[1]}`}>
                                     <div className="heading">
                                         {villager[0]}
                                     </div>

@@ -42,15 +42,15 @@ const App = () => {
         <Router>
           <Switch>
             { /* Route for home page - render the main list view */ }
-            <Route path="/" exact>
+            <Route path={`${process.env.PUBLIC_URL}/`} exact>
               {villagers && <VillagersList list={villagers} />}
             </Route>
 
             { /* Route for 'id' parameter - render the individual detail view */ }
-            <Route path="/:id" exact component={VillagerDetail} />
+            <Route path={`${process.env.PUBLIC_URL}/:id`} exact component={VillagerDetail} />
 
             { /* Catchall route - any other route should redirect to home page */ }
-            <Route render={() => <Redirect to="/" />} />
+            <Route render={() => <Redirect to={`${process.env.PUBLIC_URL}/`} />} />
           </Switch>
         </Router>
       </div>
